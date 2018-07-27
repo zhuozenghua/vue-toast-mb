@@ -1,0 +1,36 @@
+{
+  "name": "vue-toast-mb",
+  "version": "1.0.0",
+  "description": "a vue toast plugin for mobile",
+  "main": "./dist/vue-toast.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "vue-loader": "^15.2.6",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^3.6.0"
+  },
+  "keywords": [
+    "vue",
+    "vue.js",
+    "toast",
+    "vue-toast"
+  ],
+  "author": "zzh",
+  "license": "ISC",
+   "repository":{
+    "type" : "git",
+    "url" : "https://github.com/zhuozenghua/vue-toast-mb.git"
+  }
+}

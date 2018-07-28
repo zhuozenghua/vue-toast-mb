@@ -5,7 +5,9 @@ module.exports={
    entry:'./src/lib/index.js',
    output:{
     path:path.resolve("./dist"),
-    filename:"vue-toast.js"
+    filename:"vue-toast-mb.js",
+    libraryTarget: "umd",
+    library: 'VueToastMb'
    },
    module:{
     rules:[

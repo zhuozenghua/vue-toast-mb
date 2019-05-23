@@ -28,10 +28,6 @@
     @return $px / $fontSize * 1rem;
   }
 
-  @function pxToEm($px) {
-    @return $px / $fontSize * 1em;
-  }
-
   @keyframes fade-in{
      0%{
       opacity: 0;
@@ -50,7 +46,7 @@
      }
 
      100%{
-      opacity: 0;
+       opacity: 0;
       transform:scale(0.7);
      }
    }
@@ -69,19 +65,18 @@
     .toast{
       position: relative;
       background: rgba(0, 0, 0, 0.6);
-      border-radius: 13px;
+      border-radius: 10px;
       overflow: hidden;
       text-align: center;
-      // width: pxToRem(160px);
-      // height: pxToRem(90px);
-      // line-height: pxToRem(90px);
-      padding:pxToRem(17px) pxToRem(27px); 
+      // height: pxToRem(70px);
+      // line-height: pxToRem(70px);
+      padding:pxToRem(25px)pxToRem(20px);
       .icon{
         font-size: pxToRem(20px);
         color: #fff;
       }
       span{
-        font-size: pxToRem(17px);
+        font-size: pxToRem(20px);
         color: #fff;
       }
      }

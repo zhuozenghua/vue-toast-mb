@@ -174,13 +174,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _vueToast = __webpack_require__(4);
 
 var _vueToast2 = _interopRequireDefault(_vueToast);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/*
+判断是否是纯对象
+*/
+
+function isPlainObject(object) {
+  return Object.prototype.toString.call(object) === "[object Object]" ? true : false;
+}
 
 var Toast = {};
 
@@ -190,13 +196,15 @@ Toast.install = function (Vue, defaultOptions) {
     duration: 2000
   };
 
-  if ((typeof defaultOptions === 'undefined' ? 'undefined' : _typeof(defaultOptions)) === 'object') {
+  if (isPlainObject(defaultOptions)) {
     for (var key in defaultOptions) {
       temOpt[key] = defaultOptions[key];
     }
   }
 
-  //在vue的原型上拓展一个$toast函数
+  /*
+  在vue的原型上拓展一个$toast函数
+  */
   Vue.prototype.$toast = function (message, option) {
     var optionFn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
 
@@ -206,7 +214,7 @@ Toast.install = function (Vue, defaultOptions) {
     temOpt = {
       duration: 2000
     };
-    if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object') {
+    if (isPlainObject(option)) {
       for (var key in option) {
         opt[key] = option[key];
       }
@@ -214,8 +222,6 @@ Toast.install = function (Vue, defaultOptions) {
     } else if (typeof option === 'function') {
       callback = option;
     }
-    // console.log(opt);
-    // console.log(temOpt);
 
     var toastController = Vue.extend(_vueToast2.default);
     var instance = new toastController().$mount(document.createElement('div'));
@@ -274,7 +280,7 @@ var component = Object(__WEBPACK_IMPORTED_MODULE_3__node_modules_vue_loader_15_2
 
 /* hot reload */
 if (false) {
-  var api = require("/Users/zhuozenghua/Desktop/github/vue-plugins/vue-toast-mb/node_modules/_vue-hot-reload-api@2.3.0@vue-hot-reload-api/dist/index.js")
+  var api = require("/Users/zhuozenghua/Desktop/github/Vue/vue-plugins/vue-toast-mb/node_modules/_vue-hot-reload-api@2.3.0@vue-hot-reload-api/dist/index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -352,7 +358,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n@keyframes fade-in {\n0% {\n    opacity: 0;\n    transform: scale(0.7);\n}\n100% {\n    opacity: 1;\n    text-transform: scale(1);\n}\n}\n@keyframes fade-out {\n0% {\n    opacity: 1;\n    transform: scale(1);\n}\n100% {\n    opacity: 0;\n    transform: scale(0.7);\n}\n}\n.toast-container {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 1000;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.toast-container .toast {\n    position: relative;\n    background: rgba(0, 0, 0, 0.6);\n    border-radius: 13px;\n    overflow: hidden;\n    text-align: center;\n    padding: 1.0625rem 1.6875rem;\n}\n.toast-container .toast .icon {\n      font-size: 1.25rem;\n      color: #fff;\n}\n.toast-container .toast span {\n      font-size: 1.0625rem;\n      color: #fff;\n}\n.toast-container .fade-in {\n    animation: fade-in 0.5s;\n}\n.toast-container .fade-out {\n    animation: fade-out 0.5s;\n}\n", ""]);
+exports.push([module.i, "\n@keyframes fade-in {\n0% {\n    opacity: 0;\n    transform: scale(0.7);\n}\n100% {\n    opacity: 1;\n    text-transform: scale(1);\n}\n}\n@keyframes fade-out {\n0% {\n    opacity: 1;\n    transform: scale(1);\n}\n100% {\n    opacity: 0;\n    transform: scale(0.7);\n}\n}\n.toast-container {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 1000;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.toast-container .toast {\n    position: relative;\n    background: rgba(0, 0, 0, 0.6);\n    border-radius: 10px;\n    overflow: hidden;\n    text-align: center;\n    padding: 1.5625rem 1.25rem;\n}\n.toast-container .toast .icon {\n      font-size: 1.25rem;\n      color: #fff;\n}\n.toast-container .toast span {\n      font-size: 1.25rem;\n      color: #fff;\n}\n.toast-container .fade-in {\n    animation: fade-in 0.5s;\n}\n.toast-container .fade-out {\n    animation: fade-out 0.5s;\n}\n", ""]);
 
 // exports
 
